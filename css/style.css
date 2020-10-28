@@ -16,7 +16,7 @@
 body {
     margin: 0;
     font-family: 'Roboto', sans-serif;
-    font-size: 1.125rem;
+    font-size: 1rem;
     background-color: var(--mainColor);
 }
 
@@ -32,18 +32,21 @@ Typography
 h1, h2, h3, h4, h5, h6 {
     color: var(--titleText);
     font-family: 'Roboto', monospace;
+    font-weight: 400;
 }
 
 .accent { 
     color: var(--accentText); 
+}
+
+.bold {
     font-weight: 900;
 }
 
 p { color: var(--mainText); }
 
 .intro-title { 
-    font-size: 3rem; 
-    font-weight: 400;
+    font-size: 3.2rem; 
     padding: 0;
     margin: 0;
 }
@@ -52,20 +55,15 @@ p { color: var(--mainText); }
     padding-bottom: 2em;
 }
 
-@media (max-width: 415px),
-(max-height: 415px) and (orientation: landscape) {
+@media (max-width: 699px),
+(max-height: 699px) and (orientation: landscape) {
     .intro-title {
-        font-size: 2rem;
-    }
-
-    .intro-subtitle {
-        padding-bottom: 0;
+        font-size: 2.5rem;
     }
 }
 
 .section-title { 
     font-size: 2rem; 
-    font-weight: 400;
 }
 
 .logo { 
@@ -86,47 +84,43 @@ Layout
 ========== */
 /* Sections */ 
 section {
-    width: 80%; 
+    width: 75%; 
     max-width: 1200px; 
     margin: 0 auto; 
     height: auto;
 }
 
-.intro {
-    height: 100vh;
+.about, 
+.passion,
+.experience {
+    padding-bottom: 10em;
 }
 
-.container-intro {
-    position: relative;
-    top: 50%;
-    transform: translate(0, -50%);
-}
-
-@media (max-height: 415px) and (orientation: landscape) {
-    .intro {
-        height: auto;
+@media (min-width: 700px) {
+    .about-body,
+    .experience-body {
+        padding-right: 5em;
     }
 
-    .container-intro {
-        margin-top: 6.5em;
-        top: 0;
-        transform: translate(0,0);
+    .passion-body,
+    .work-body {
+        padding-left: 5em;
     }
 }
-
 
 .section-title {
     position: relative;
+    padding-bottom: 1em;
 }
 
 .about-title,
 .experience-title {
-    text-align: left;
+    text-align: right;
 }
 
 .passion-title, 
 .work-title {
-    text-align: right;
+    text-align: left;
 }
 
 .section-title:before {
@@ -135,31 +129,31 @@ section {
     display: block;
     width: 100%;
     height: .01em;
-    top: 50%;
+    top: 25%;
     background: var(--mainText);
     z-index: -2;
 }
 
 .about-title:before,
 .experience-title:before {
-    left: 0;
+    right: 0;
 }
 
 .passion-title:before, 
 .work-title:before {
-    right: 0;
+    left: 0;
 }
 
 .line { background: var(--mainColor); }
 
 .about-title .line,
 .experience-title .line {
-    padding-right: 1em;
+    padding-left: 1em;
 }
 
 .passion-title .line, 
 .work-title .line {
-    padding-left: 1em;
+    padding-right: 1em;
 }
 
 
@@ -264,7 +258,7 @@ section {
 }
 
 @media (max-height: 699px) and (orientation: landscape) {
-    .nav-list {
+    .nav-list.scroll {
         overflow-y: scroll;
     }
 }
@@ -272,8 +266,27 @@ section {
 
 /* intro */
 .intro {
+    height: 100vh;
     display: flex;
     flex-direction: column;
+}
+
+.container-intro {
+    position: relative;
+    top: 50%;
+    transform: translate(0, -50%);
+}
+
+@media (max-height: 510px) {
+    .intro {
+        height: auto;
+    }
+
+    .container-intro {
+        margin: 6.5em 0;
+        top: 0;
+        transform: translate(0,0);
+    }
 }
 
 .button {
@@ -296,3 +309,50 @@ section {
 }
 
 /* about */
+.about-body {
+    display: flex;
+    flex-direction: column;
+}
+
+.about-body-img {
+    order: 1;
+}
+
+.about-body-text {
+    order: 2;
+}
+
+.about-body-text p:first-child {
+    margin: 0;
+}
+
+.about-img {
+    padding: 0 2em 1em 2em;
+    border-radius: .1em;
+    /*filter: grayscale(100%);*/
+}
+
+@media (min-width: 700px) {
+    .about-body {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .about-body-text {
+        order: 1;
+        width: 60%;
+    }
+
+    .about-body-img {
+        order: 2;
+        width: 30%;
+    }
+
+    .about-img {
+        width: 100%;
+        padding: 0;
+        object-fit: cover;
+    }
+}
+
+
