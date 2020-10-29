@@ -144,7 +144,8 @@ section {
 
 .section-title {
     position: relative;
-    padding-bottom: .5em;
+    margin-bottom: 0;
+    padding-bottom: 2em;
 }
 
 .about-title,
@@ -416,6 +417,33 @@ to avoid overlap of nav and intro-title */
 /***************
     passion
 ***************/
+.passion-items {
+    display: flex;
+    flex-direction: column;
+}
+
+.passion-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.passion-item-title {
+    order:  1;
+    margin-block-start: 0;
+}
+
+.passion-item-icon {
+    order: 2;
+    padding: 2em;
+    background-color: yellow;
+    width: 10.5em;
+    text-align: center;
+}
+
+.passion-item-p {
+    order: 3;
+}
 
 /***************
     experience
