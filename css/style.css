@@ -1,3 +1,17 @@
+/**************
+***************
+    DEVICES
+***************
+***************/
+/*
+    small devices => max-width: 614px
+    medium devices => min-width: 615px, max-width: 979px
+    big devices => min-width: 980px
+
+    navigation bar minimized => max-width: 700px
+    small height => max-width: 510px
+*/
+
 :root {
     --titleText: white;
     --mainText: #8b8b8c;
@@ -25,14 +39,23 @@ img {
     display: block;
 }
 
+.intro-title:hover {
+    animation: reverse 1s;
+}
 
-/* ==========
-Typography
-========== */
+/**************
+***************
+    TYPOGRAPHY
+***************
+***************/
 h1, h2, h3, h4, h5, h6 {
     color: var(--titleText);
     font-family: 'Roboto', monospace;
     font-weight: 400;
+}
+
+p { 
+    color: var(--mainText); 
 }
 
 .accent { 
@@ -43,27 +66,15 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 900;
 }
 
-p { color: var(--mainText); }
 
 .intro-title { 
-    font-size: 3.2rem; 
+    font-size: 2rem; 
     padding: 0;
     margin: 0;
 }
 
-.intro-subtitle {
-    padding-bottom: 2em;
-}
-
-@media (max-width: 699px),
-(max-height: 699px) and (orientation: landscape) {
-    .intro-title {
-        font-size: 2.5rem;
-    }
-}
-
 .section-title { 
-    font-size: 2rem; 
+    font-size: 1.5rem; 
 }
 
 .logo { 
@@ -72,19 +83,54 @@ p { color: var(--mainText); }
     color: var(--accentText);
 }
 
+/* medium devices */
+@media (min-width: 615px) and (max-width: 979px) {
+    .intro-title {
+        font-size: 3rem;
+    }
 
-@media (max-width: 699px) {
+    .section-title {
+        font-size: 2rem;
+    }
+}
+
+/* big devices */
+@media (min-width: 980px) {
+    .intro-title {
+        font-size: 4rem;
+    }
+
+    .section-title {
+        font-size: 2.5rem;
+    }
+}
+
+.nav-link {
+    font-size: 1rem;
+}
+
+/* navigation bar minimized */
+@media (max-width: 700px) {
     .nav-link {
         font-size: 1.2rem;
     }
 }
 
-/* ==========
-Layout
-========== */
-/* Sections */ 
+
+/**************
+***************
+    LAYOUT
+***************
+***************/
+.intro-subtitle {
+    padding-bottom: 2em;
+}
+
+/***************
+    sections
+***************/
 section {
-    width: 75%; 
+    width: 80%; 
     max-width: 1200px; 
     margin: 0 auto; 
     height: auto;
@@ -96,21 +142,9 @@ section {
     padding-bottom: 10em;
 }
 
-@media (min-width: 700px) {
-    .about-body,
-    .experience-body {
-        padding-right: 5em;
-    }
-
-    .passion-body,
-    .work-body {
-        padding-left: 5em;
-    }
-}
-
 .section-title {
     position: relative;
-    padding-bottom: 1em;
+    padding-bottom: .5em;
 }
 
 .about-title,
@@ -129,7 +163,7 @@ section {
     display: block;
     width: 100%;
     height: .01em;
-    top: 25%;
+    top: 50%;
     background: var(--mainText);
     z-index: -2;
 }
@@ -156,9 +190,23 @@ section {
     padding-right: 1em;
 }
 
+/* big devices */
+@media (min-width: 980px) {
+    .about-body,
+    .experience-body {
+        padding-right: 5em;
+    }
 
-/* navigation bar */
-.icon {
+    .passion-body,
+    .work-body {
+        padding-left: 5em;
+    }
+}
+
+/***************
+    navigation bar
+***************/
+.logo-icon {
     display: none;
     cursor: pointer;
     z-index: 3;
@@ -179,7 +227,7 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    transition: all 0.3s ease;
+    
 }
 
 .nav.sticky {
@@ -224,7 +272,8 @@ section {
     color: var(--accentText);
 }
 
-@media (max-width: 699px) {
+/* navigation bar minimized */
+@media (max-width: 700px) {
     body { overflow: auto; }
     body.disable-scroll { overflow: hidden; }
 
@@ -257,14 +306,16 @@ section {
     }
 }
 
-@media (max-height: 699px) and (orientation: landscape) {
+/* navigation bar minimized with landscape orientation */
+@media (max-height: 700px) and (orientation: landscape) {
     .nav-list.scroll {
         overflow-y: scroll;
     }
 }
 
-
-/* intro */
+/***************
+    intro
+***************/
 .intro {
     height: 100vh;
     display: flex;
@@ -277,6 +328,8 @@ section {
     transform: translate(0, -50%);
 }
 
+/* small height
+to avoid overlap of nav and intro-title */
 @media (max-height: 510px) {
     .intro {
         height: auto;
@@ -295,10 +348,10 @@ section {
     color: var(--accentText);
     border: .01em solid var(--accentText);
     border-radius: .2em;
-    padding: .9em;
     text-align: center;
     text-decoration: none;
-    margin: .5em;
+    padding: 1em;
+    margin: 1em;
     margin-left: 0;
     border-style: dashed dashed solid solid;
 }
@@ -308,7 +361,9 @@ section {
     color: var(--secondaryText);
 }
 
-/* about */
+/***************
+    about
+***************/
 .about-body {
     display: flex;
     flex-direction: column;
@@ -327,12 +382,15 @@ section {
 }
 
 .about-img {
-    padding: 0 2em 1em 2em;
+    padding: 0 2em 2em 2em;
     border-radius: .1em;
+    width: 100%;
+    object-fit: cover;
     /*filter: grayscale(100%);*/
 }
 
-@media (min-width: 700px) {
+/* medium devices and big devices */
+@media (min-width: 615px) {
     .about-body {
         flex-direction: row;
         justify-content: space-between;
@@ -355,4 +413,62 @@ section {
     }
 }
 
+/***************
+    passion
+***************/
 
+/***************
+    experience
+***************/
+
+/***************
+    work
+***************/
+.work-projects {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+    gap: 1em;
+}
+
+.work-project {
+    display: flex; 
+    flex-direction: column;
+    background: blue;
+    padding: 2em;
+    border-radius: .1em;
+}
+
+.work-project-icon {
+    color: var(--accentColor);
+}
+
+.work-project-technologies-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding-right: 1em;
+    padding: 0;
+}
+
+.work-project-technologies-list-item {
+    color: var(--titleText);
+    padding-right: 1em;
+}
+
+
+/* medium devices */
+@media (min-width: 615px) and (max-width: 979px) {
+    .work-projects {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+    }
+}
+
+/* big devices */
+@media (min-width: 980px) {
+    .work-projects {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+    }
+}
