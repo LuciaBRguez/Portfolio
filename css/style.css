@@ -56,6 +56,7 @@ h1, h2, h3, h4, h5, h6 {
 
 p { 
     color: var(--mainText); 
+    /*text-align: justify;*/
 }
 
 .accent { 
@@ -144,8 +145,8 @@ section {
 
 .section-title {
     position: relative;
-    margin-bottom: 0;
-    padding-bottom: 2em;
+    margin-bottom: 1.8em;
+    padding-bottom: .2em;
 }
 
 .about-title,
@@ -158,37 +159,8 @@ section {
     text-align: left;
 }
 
-.section-title:before {
-    position: absolute;
-    content: "";
-    display: block;
-    width: 100%;
-    height: .01em;
-    top: 50%;
-    background: var(--mainText);
-    z-index: -2;
-}
-
-.about-title:before,
-.experience-title:before {
-    right: 0;
-}
-
-.passion-title:before, 
-.work-title:before {
-    left: 0;
-}
-
-.line { background: var(--mainColor); }
-
-.about-title .line,
-.experience-title .line {
-    padding-left: 1em;
-}
-
-.passion-title .line, 
-.work-title .line {
-    padding-right: 1em;
+.section-title {
+    border-bottom: .01em dashed white;
 }
 
 /* big devices */
@@ -244,7 +216,7 @@ section {
     border: .01em solid var(--accentText);
     padding: .1em .4em;
     border-radius: .1em;
-    border-style: dashed dashed solid solid;
+    border-style: solid dashed dashed solid;
 }
 
 .nav-list {
@@ -354,7 +326,7 @@ to avoid overlap of nav and intro-title */
     padding: 1em;
     margin: 1em;
     margin-left: 0;
-    border-style: dashed dashed solid solid;
+    border-style: solid dashed dashed solid;
 }
 
 .button:hover {
@@ -431,23 +403,100 @@ to avoid overlap of nav and intro-title */
 .passion-item-title {
     order:  1;
     margin-block-start: 0;
+    color: var(--accentText);
 }
 
 .passion-item-icon {
     order: 2;
     padding: 2em;
-    background-color: yellow;
-    width: 10.5em;
+    border: .01em solid var(--accentText);
+    border-style: solid dashed dashed solid;
+    border-radius: 50%;
+    color: var(--accentColor);
     text-align: center;
+    width: 12em;
+    height: 12em;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.passion-item-icon-secondary {
+    display: none;
+}
+
+.passion-item-icon:hover .passion-item-icon-primary {
+    display: none;
+}
+
+.passion-item-icon:hover .passion-item-icon-secondary {
+    display: inline;
 }
 
 .passion-item-p {
     order: 3;
 }
 
+/* medium devices and big devices */
+@media (min-width: 615px) {
+    .passion-items {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .passion-item {
+        width: 30%
+    }
+}
+
 /***************
     experience
 ***************/
+.experience-technologies-images-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.experience-technologies-images-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+    gap: 2em;
+}
+
+.technology-image {
+    max-width: 6em;
+}
+
+/* medium devices */
+@media (min-width: 615px) and (max-width: 979px) {
+    .experience-technologies-images-grid {
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        gap: 2em;
+    }
+    
+    .technology-image {
+        max-width: 5em;
+    }
+}
+
+/* big devices */
+@media (min-width: 980px) {
+    .experience-technologies-images-grid {
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        grid-template-rows: repeat(2, 1fr);
+        gap: 2em;
+    }
+    
+    .technology-image {
+        max-width: 5em;
+    }
+}
 
 /***************
     work
@@ -459,12 +508,18 @@ to avoid overlap of nav and intro-title */
     gap: 1em;
 }
 
+.work-project-link {
+    list-style: none;
+    text-decoration: none;
+}
+
 .work-project {
     display: flex; 
     flex-direction: column;
-    background: blue;
+    border: .01em solid var(--accentText);
+    border-style: solid dashed dashed solid;
+    border-radius: .2em;
     padding: 2em;
-    border-radius: .1em;
 }
 
 .work-project-icon {
