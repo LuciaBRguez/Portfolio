@@ -13,14 +13,23 @@
 */
 
 :root {
-    --titleText: white;
+    /*--titleText: white;
     --mainText: #8b8b8c;
     --secondaryText: #1a1a1a;
     --accentText: #ffe600;
 
     --mainColor: #1a1a1a;
     --secondaryColor: #161616;
-    --accentColor: #ffe600;
+    --accentColor: #ffe600;*/
+
+    --titleText: black;
+    --mainText: #484848;
+    --secondaryText: white;
+    --accentText: #00a7cc;
+
+    --mainColor: white;
+    --secondaryColor: #7e7e7ec2;
+    --accentColor: #00a7cc;
 }
 
 *, *::before, *::after {
@@ -54,6 +63,11 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 400;
 }
 
+h3 {
+    font-style: oblique;
+    padding-bottom: 1em;
+}
+
 p { 
     color: var(--mainText); 
     /*text-align: justify;*/
@@ -81,7 +95,7 @@ p {
 .logo { 
     font-size: 2rem; 
     font-weight: 900;
-    color: var(--accentText);
+    color: var(--titleText);
 }
 
 /* medium devices */
@@ -117,6 +131,9 @@ p {
     }
 }
 
+.container-footer { 
+    background: var(--secondaryColor);
+}
 
 /**************
 ***************
@@ -139,7 +156,9 @@ section {
 
 .about, 
 .passion,
-.experience {
+.experience,
+.work,
+.contact {
     padding-bottom: 10em;
 }
 
@@ -151,16 +170,20 @@ section {
 
 .about-title,
 .experience-title {
-    text-align: right;
-}
-
-.passion-title, 
-.work-title {
     text-align: left;
 }
 
+.passion-title {
+    text-align: right;
+}
+
+.work-title,
+.contact-title {
+    text-align: center;
+}
+
 .section-title {
-    border-bottom: .01em dashed white;
+    border-bottom: .01em dotted black;
 }
 
 /* big devices */
@@ -170,9 +193,17 @@ section {
         padding-right: 5em;
     }
 
-    .passion-body,
-    .work-body {
+    .passion-body {
         padding-left: 5em;
+    }
+
+    .about-title,
+    .experience-title {
+        margin-right: 2em;
+    }
+
+    .passion-title {
+        margin-left: 2em;
     }
 }
 
@@ -213,10 +244,10 @@ section {
     padding: 0;
     margin: 0;
     padding: 0;
-    border: .01em solid var(--accentText);
+    border: .01em solid var(--titleText);
     padding: .1em .4em;
     border-radius: .1em;
-    border-style: solid dashed dashed solid;
+    border-style: solid dotted dotted solid;
 }
 
 .nav-list {
@@ -326,7 +357,7 @@ to avoid overlap of nav and intro-title */
     padding: 1em;
     margin: 1em;
     margin-left: 0;
-    border-style: solid dashed dashed solid;
+    border-style: solid dotted dotted solid;
 }
 
 .button:hover {
@@ -371,7 +402,7 @@ to avoid overlap of nav and intro-title */
 
     .about-body-text {
         order: 1;
-        width: 60%;
+        width: 65%;
     }
 
     .about-body-img {
@@ -403,14 +434,14 @@ to avoid overlap of nav and intro-title */
 .passion-item-title {
     order:  1;
     margin-block-start: 0;
-    color: var(--accentText);
+    color: var(--mainText);
 }
 
 .passion-item-icon {
     order: 2;
     padding: 2em;
     border: .01em solid var(--accentText);
-    border-style: solid dashed dashed solid;
+    border-style: solid dotted dotted solid;
     border-radius: 50%;
     color: var(--accentColor);
     text-align: center;
@@ -419,6 +450,7 @@ to avoid overlap of nav and intro-title */
     display: flex;
     align-items: center;
     justify-content: space-evenly;
+    margin-bottom: 1em;
 }
 
 .passion-item-icon-secondary {
@@ -435,6 +467,7 @@ to avoid overlap of nav and intro-title */
 
 .passion-item-p {
     order: 3;
+    margin-top: 1em;
 }
 
 /* medium devices and big devices */
@@ -446,17 +479,25 @@ to avoid overlap of nav and intro-title */
     }
 
     .passion-item {
-        width: 30%
+        width: 30%;
     }
 }
 
 /***************
     experience
 ***************/
+.experience-body-p {
+    margin-top: 0;
+}
+
+.experience-technologies-title {
+    padding-top: 1em;
+}
+
 .experience-technologies-images-flex {
     display: flex;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-around;
 }
 
 .experience-technologies-images-grid {
@@ -473,10 +514,8 @@ to avoid overlap of nav and intro-title */
 /* medium devices */
 @media (min-width: 615px) and (max-width: 979px) {
     .experience-technologies-images-grid {
-        display: grid;
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: repeat(3, 1fr);
-        gap: 2em;
     }
     
     .technology-image {
@@ -486,11 +525,13 @@ to avoid overlap of nav and intro-title */
 
 /* big devices */
 @media (min-width: 980px) {
+    .experience-technologies-images-flex {
+        justify-content: space-between;
+    }
+
     .experience-technologies-images-grid {
-        display: grid;
         grid-template-columns: repeat(9, 1fr);
         grid-template-rows: repeat(2, 1fr);
-        gap: 2em;
     }
     
     .technology-image {
@@ -501,11 +542,15 @@ to avoid overlap of nav and intro-title */
 /***************
     work
 ***************/
+.work-body-title {
+    text-align: center;
+}
+
 .work-projects {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
-    grid-template-rows: repeat(1, 1fr);
-    gap: 1em;
+    grid-template-rows: auto;
+    gap: 2em;
 }
 
 .work-project-link {
@@ -517,7 +562,7 @@ to avoid overlap of nav and intro-title */
     display: flex; 
     flex-direction: column;
     border: .01em solid var(--accentText);
-    border-style: solid dashed dashed solid;
+    border-style: solid dotted dotted solid;
     border-radius: .2em;
     padding: 2em;
 }
@@ -544,7 +589,7 @@ to avoid overlap of nav and intro-title */
 @media (min-width: 615px) and (max-width: 979px) {
     .work-projects {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: repeat(2, 1fr);
+        grid-template-rows: auto;
     }
 }
 
@@ -552,6 +597,26 @@ to avoid overlap of nav and intro-title */
 @media (min-width: 980px) {
     .work-projects {
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: repeat(3, 1fr);
+        grid-template-rows: auto;
     }
+}
+
+/***************
+    contact
+***************/
+.contact-body {
+    text-align: center;
+}
+
+
+/***************
+    footer
+***************/
+.container-footer {
+    text-align: center;
+    padding: 2em 2em;
+}
+
+.footer-p {
+    color: var(--titleText);
 }
