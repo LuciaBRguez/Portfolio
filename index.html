@@ -39,7 +39,7 @@
                         and I'm a <span class="accent bold">web developer.</span>
                     </h1>
                     <p class="intro-subtitle">Front End Developer - UX/UI enthusiast</p>
-                    <div class="container-buttons">
+                    <div class="intro-container-buttons">
                         <a href="#" class="button">Résumé</a>
                         <a href="#" class="button">Get in touch</a>
                     </div>
@@ -286,6 +286,29 @@
                         
                             </div>
                         </a>
+                        <a class="work-project-link" href="https://github.com/LuciaBRguez/Portfolio/tree/master">
+                            <div class="work-project work-project-more">
+                                <div class="work-project-icon">
+                                    <i class="fab fa-github fa-3x"></i>
+                                </div>
+                                <div class="work-project-text">
+                                    <h3 class="work-project-title">Portfolio</h3>
+                                    <p class="work-project-description">My portfolio website. Designed and developed with a conscious effort to avoid using any superfluous frameworks like Bootstrap.</p>
+                                </div>
+                                <div class="work-project-technologies">
+                                    <ul class="work-project-technologies-list">
+                                        <li class="work-project-technologies-list-item">HTML</li>
+                                        <li class="work-project-technologies-list-item">CSS</li>
+                                        <li class="work-project-technologies-list-item">JS</li>
+                                    </ul>
+                                </div>
+                        
+                            </div>
+                        </a>
+                    </div>
+                    <div class="work-container-buttons">
+                        <button class="button button-work-show" onclick="showMoreWork()">Show more</button>
+                        <button class="button button-work-less" onclick="showLessWork()">Show less</button>
                     </div>
                 </div>
             </section>
@@ -293,7 +316,7 @@
                 <h2 class="section-title contact-title"><span class="line">Get in touch!</span></h2>
                 <div class="contact-body">
                     <h3 class="contact-body-title">Whether you have an idea for a project or just want to chat, feel free to shoot me an email!</p>
-                    <a href="#" class="button">Say hello</a>
+                    <a href="https://mail.google.com/mail/?view=cm&fs=1&to=lucia.blanco.rguez@gmail.com" class="button">Say hello</a>
                 </div>
             </section>    
         </div>
@@ -301,7 +324,15 @@
 
     <footer>
         <div class="container-footer">
-            <p class="footer-p">Designed and built by Lucía Blanco</p>
+            <div class="footer-icons">
+                <a href="https://www.linkedin.com/in/luc%C3%ADa-blanco-rodr%C3%ADguez-8a9544181/" class="footer-linkedin footer-link">
+                    <i class="fab fa-linkedin fa-2x"></i>
+                </a>
+                <a href="https://github.com/LuciaBRguez" class="footer-git footer-link">
+                    <i class="fab fa-github-square fa-2x"></i>
+                </a>
+            </div>
+            <p class="footer-p">Designed and built by Lucía Blanco Rodríguez</p>
         </div>
     </footer>
 
@@ -318,6 +349,10 @@
         const passionIcon = document.querySelector(".passion-item-icon");
         const primaryIcon = document.querySelector(".passion-item-icon-primary");
         const secondaryIcon = document.querySelector(".passion-item-icon-secondary");
+        /* work */
+        let moreWork = document.querySelector(".work-project-more");
+        let showButton = document.querySelector(".button-work-show");
+        let lessButton = document.querySelector(".button-work-less");
 
         menuBtn.onclick = () => {
             body.classList.add("disable-scroll");
@@ -339,6 +374,19 @@
 
         window.onscroll = () => {
             this.scrollY > 20 ? nav.classList.add("sticky") : nav.classList.remove("sticky");
+        }
+
+        /* work */
+        function showMoreWork() {
+            moreWork.style.display = "block";
+            showButton.style.display = "none";
+            lessButton.style.display = "block";
+        }
+
+        function showLessWork() {
+            moreWork.style.display = "none";
+            showButton.style.display = "block";
+            lessButton.style.display = "none";
         }
         
       </script>
