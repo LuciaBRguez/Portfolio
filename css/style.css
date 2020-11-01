@@ -12,22 +12,24 @@
     small height => max-width: 510px
 */
 
-:root {
-    /*--titleText: white;
-    --mainText: #8b8b8c;
-    --secondaryText: #1a1a1a;
-    --accentText: #ffe600;
-
-    --mainColor: #1a1a1a;
-    --secondaryColor: #161616;
-    --accentColor: #ffe600;*/
-
+html {
     --titleText: black;
-    --mainText: #484848;
+    --mainText: rgb(32, 32, 32);
     --secondaryText: white;
-    --accentText: #00a7cc;
+    --accentText: #008bac;
 
     --mainColor: white;
+    --secondaryColor: #7e7e7ec2;
+    --accentColor: #00a7cc;
+}
+
+html[data-theme="dark"] {
+    --titleText: white;
+    --mainText: rgb(152, 152, 152);
+    --secondaryText: white;
+    --accentText: #008bac;
+
+    --mainColor: #171c28;
     --secondaryColor: #7e7e7ec2;
     --accentColor: #00a7cc;
 }
@@ -144,9 +146,6 @@ p {
     LAYOUT
 ***************
 ***************/
-.intro-subtitle {
-    padding-bottom: 2em;
-}
 
 /***************
     sections
@@ -187,7 +186,7 @@ section {
 }
 
 .section-title {
-    border-bottom: .01em dotted black;
+    border-bottom: .01em dotted var(--titleText);
 }
 
 /* big devices */
@@ -227,7 +226,7 @@ section {
 
 .nav {
     position: fixed;
-    background: var(--mainColor);
+    background: transparent;
     z-index: 2;
     width: 100%;
     color: white;
@@ -235,7 +234,14 @@ section {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    
+}
+
+/* small height
+to avoid overlap of nav and intro-title */
+@media (max-height: 510px) {
+    .nav {
+        background: var(--mainColor);
+    }
 }
 
 .nav.sticky {
@@ -321,6 +327,7 @@ section {
     }
 }
 
+
 /***************
     intro
 ***************/
@@ -361,12 +368,76 @@ to avoid overlap of nav and intro-title */
     padding: 1em;
     margin: 1em;
     margin-left: 0;
+    margin-bottom: 0;
     border-style: solid dotted dotted solid;
 }
 
 .button:hover {
     background-color: var(--accentText);
     color: var(--secondaryText);
+}
+
+/* checkbox */
+.intro-toggle-container {
+    margin-top: 1.5em;
+    margin-bottom: 2em;
+}
+
+input[type=checkbox] {
+    height: 0;
+    width: 0;
+    visibility: hidden;
+}
+
+label {
+    cursor: pointer;
+    /*text-indent: -1000em;*/
+    width: 3em;
+    height: 1.7em;
+    background: rgb(32, 32, 32);
+    float: left;
+    border-radius: 1em;
+    position: relative;
+}
+
+label:after {
+    content: '';
+    position: absolute;
+    top: .2em;
+    left: .2em;
+    width: 1.3em;
+    height: 1.3em;
+    background: white;
+    border-radius: 50%;
+    transition: 0.3s;
+}
+
+input:checked + label {
+    background-color:  #008bac;
+}
+
+input:checked + label:after {
+    left: calc(100% -.2em);
+    transform: translateX(100%);
+}
+
+label:active:after {
+    width: 1.3em;
+}
+
+.fa-moon {
+    color: yellow;
+    position: relative;
+    top: .2em;
+    left: .3em;
+}
+
+.fa-sun {
+    color: orange;
+    position: relative;
+    top: .2em;
+    left: -.6em;
+    transform: translateX(100%);
 }
 
 /***************

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="light">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,6 +39,13 @@
                         and I'm a <span class="accent bold">web developer.</span>
                     </h1>
                     <p class="intro-subtitle">Front End Developer - UX/UI enthusiast</p>
+                    <div class="intro-toggle-container">
+                        <input type="checkbox" id="switch" name="theme">
+                        <label for="switch">
+                            <i class="fas fa-moon"></i>
+                            <i class="fas fa-sun"></i>
+                        </label>
+                    </div>
                     <div class="intro-container-buttons">
                         <a href="#" class="button">Résumé</a>
                         <a href="#" class="button">Get in touch</a>
@@ -353,6 +360,8 @@
         let moreWork = document.querySelector(".work-project-more");
         let showButton = document.querySelector(".button-work-show");
         let lessButton = document.querySelector(".button-work-less");
+        /* change theme */
+        
 
         menuBtn.onclick = () => {
             body.classList.add("disable-scroll");
@@ -389,6 +398,25 @@
             lessButton.style.display = "none";
         }
         
+        /* change theme */
+        var checkbox = document.querySelector('input[name=theme]');
+
+        checkbox.addEventListener('change', function() {
+            if(this.checked) {
+                trans()
+                document.documentElement.setAttribute('data-theme', 'dark')
+            } else {
+                trans()
+                document.documentElement.setAttribute('data-theme', 'light')
+            }
+        })
+
+        let trans = () => {
+            document.documentElement.classList.add('transition');
+            window.setTimeout(() => {
+                document.documentElement.classList.remove('transition');
+            }, 1000)
+        }
       </script>
 </body>
 </html>
