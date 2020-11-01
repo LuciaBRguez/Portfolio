@@ -21,6 +21,8 @@ html {
     --secondaryColor: #e2e2e2;
     --ternaryColor: #9b9898d7;
     --accentColor: #1c8382;
+
+    --shadowColor: #9b9898d7;
 }
 
 html[data-theme="dark"] {
@@ -32,6 +34,8 @@ html[data-theme="dark"] {
     --secondaryColor: #0c2525;
     --ternaryColor: #071717d2;
     --accentColor: #3efffd;
+
+    --shadowColor: #071717d2;
 }
 
 *, *::before, *::after {
@@ -403,7 +407,6 @@ input[type=checkbox] {
 
 label {
     cursor: pointer;
-    /*text-indent: -1000em;*/
     width: 3em;
     height: 1.7em;
     background: var(--mainText);
@@ -425,7 +428,7 @@ label:after {
 }
 
 input:checked + label {
-    background-color:  var(--ternaryColor);
+    background-color: var(--ternaryColor);
 }
 
 input:checked + label:after {
@@ -594,7 +597,7 @@ label:active:after {
     gap: 2em;
 }
 
-.technology-image {
+.experience-technology {
     max-width: 4em;
 }
 
@@ -605,7 +608,7 @@ label:active:after {
         grid-template-rows: auto;
     }
     
-    .technology-image {
+    .experience-technology {
         max-width: 4em;
     }
 }
@@ -625,7 +628,7 @@ label:active:after {
         grid-template-rows: auto;
     }
     
-    .technology-image {
+    .experience-technology {
         max-width: 4em;
     }
 }
@@ -659,7 +662,7 @@ label:active:after {
 
 .work-project:hover {
     transform: translate(0, -.5em);
-    box-shadow: 0 .5em .5em 0 #9999;
+    box-shadow: 0 .5em .5em 0 var(--shadowColor);
 }
 
 .work-project-title {

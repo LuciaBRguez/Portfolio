@@ -116,59 +116,59 @@
                         <h3 class="experience-technologies-title accent-text">Some technologies I've worked with</h3>
                         <div class="experience-technologies-images-flex">
                             <div class="experience-technologies-images-grid">
-                                <div class="technology-image">
-                                    <img src="images/html.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/html.png" alt="">
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/css.svg.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/css.svg.png" alt="">
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/bootstrap.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/bootstrap.png" alt="">  
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/js.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/js.png" alt=""> 
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/jquery.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/jquery.png" alt="">
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/wordpress.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/wordpress.png" alt="">
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/sass.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/sass.png" alt=""> 
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/vue.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/vue.png" alt="">    
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/photoshop.svg_.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/photoshop.svg_.png" alt="">
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/github.svg.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/github.svg.png" alt="">  
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/mysql.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/mysql.png" alt="">  
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/java.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/java.png" alt=""> 
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/node.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/node.png" alt="">
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/python.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/python.png" alt="">
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/php.svg.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/php.svg.png" alt="">
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/kotlin.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/kotlin.png" alt=""> 
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/hadoop.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/hadoop.png" alt=""> 
                                 </div>
-                                <div class="technology-image">
-                                    <img src="images/jira.png" alt="">
+                                <div class="experience-technology">
+                                    <img class="technology-image" src="images/jira.png" alt="">
                                 </div>
                             </div>
                         </div>
@@ -361,8 +361,6 @@
         let moreWork = document.querySelector(".work-project-more");
         let showButton = document.querySelector(".button-work-show");
         let lessButton = document.querySelector(".button-work-less");
-        /* change theme */
-        
 
         menuBtn.onclick = () => {
             body.classList.add("disable-scroll");
@@ -417,6 +415,10 @@
             window.setTimeout(() => {
                 document.documentElement.classList.remove('transition');
             }, 1000)
+        }
+
+        window.onload = function uncheck() {
+            checkbox.checked = false;
         }
       </script>
 </body>
