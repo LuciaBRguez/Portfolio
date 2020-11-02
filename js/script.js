@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     const main = document.querySelector("main");
 
     /* work */
-    let moreWork = document.querySelector(".work-project-more");
+    var moreWorks = document.getElementsByClassName("work-project-more");
     let showButton = document.querySelector(".button-work-show");
     let lessButton = document.querySelector(".button-work-less");
 
@@ -12,13 +12,26 @@ document.addEventListener("DOMContentLoaded", function(event) {
     lessButton.onclick = showLessWork;
 
     function showMoreWork() {
-        moreWork.style.display = "block";
+        for (var i = 0, length = moreWorks.length; i < length; i ++) {
+            showDelay(i);
+        }
+
+        function showDelay(i) {
+            setTimeout(function() {
+                moreWorks[i].style.display = "block";
+                moreWorks[i].style.visibility = "visible";
+            }, 200 * i)
+        }
+
         showButton.style.display = "none";
         lessButton.style.display = "block";
     }
 
     function showLessWork() {
-        moreWork.style.display = "none";
+        for (var i = 0, length = moreWorks.length; i < length; i ++) {
+            moreWorks[i].style.display = "none";
+        }
+
         showButton.style.display = "block";
         lessButton.style.display = "none";
     }
@@ -70,7 +83,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     /* onload */
     window.onload = function uncheck() {
         /* go to the top */
-        window.scrollTo(0 ,0);
+        /*window.scrollTo(0 ,0);*/
 
         /* uncheck checkbox when reload */
         checkbox.checked = false;

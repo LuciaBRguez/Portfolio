@@ -15,12 +15,12 @@
 html {
     --titleText: black;
     --mainText: rgb(32, 32, 32);
-    --accentText: #1c8382;
+    --accentText: #1b849b;
 
     --mainColor: white;
     --secondaryColor: #e2e2e2;
     --ternaryColor: #9b9898d7;
-    --accentColor: #1c8382;
+    --accentColor: #1b849b;
 
     --shadowColor: #9b9898d7;
 }
@@ -28,14 +28,14 @@ html {
 html[data-theme="dark"] {
     --titleText: white;
     --mainText: #cdcdcd;
-    --accentText: #3efffd;
+    --accentText: #2badc7;
 
-    --mainColor: #0e2c2c;
-    --secondaryColor: #0c2525;
-    --ternaryColor: #071717d2;
-    --accentColor: #3efffd;
+    --mainColor: #2c3131;
+    --secondaryColor: #1f2525;
+    --ternaryColor: #161919e5;
+    --accentColor: #2badc7;
 
-    --shadowColor: #071717d2;
+    --shadowColor: #161919e5;
 }
 
 *, *::before, *::after {
@@ -659,11 +659,13 @@ label:active:after {
     background: var(--secondaryColor);
     border-radius: .2em;
     padding: 2em;
+    transition: all 0.3s ease;
 }
 
 .work-project:hover {
     transform: translate(0, -.5em);
     box-shadow: 0 .5em .5em 0 var(--shadowColor);
+    transition: all 0.3s ease;
 }
 
 .work-project-title {
@@ -689,6 +691,8 @@ label:active:after {
 
 .work-project-more {
     display: none;
+    visibility: hidden;
+    transition: all 0.3s ease;
 }
 
 .work-container-buttons {
