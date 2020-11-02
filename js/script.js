@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
     const body = document.querySelector("body");
     const main = document.querySelector("main");
 
-    /* work */
+    /* show/hide more work */
     var moreWorks = document.getElementsByClassName("work-project-more");
     let showButton = document.querySelector(".button-work-show");
     let lessButton = document.querySelector(".button-work-less");
@@ -80,6 +80,11 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }, 1000)
     }
 
+    /* delete empty text of label */
+    var label = document.querySelector("label");
+    var emptyText = label.childNodes[3];
+    emptyText.textContent = "";
+
     /* onload */
     window.onload = function uncheck() {
         /* go to the top */
@@ -87,11 +92,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         /* uncheck checkbox when reload */
         checkbox.checked = false;
-
-        /* delete empty text of label */
-        var label = document.querySelector("label");
-        var emptyText = label.childNodes[3];
-        emptyText.textContent = "";
 
         /* sticky */
         window.onscroll = () => {
