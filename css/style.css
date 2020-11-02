@@ -453,7 +453,7 @@ label:active:after {
     color: rgb(255, 123, 0);
     position: relative;
     top: .25em;
-    left: -.6em;
+    left: -.3em;
     transform: translateX(100%);
 }
 

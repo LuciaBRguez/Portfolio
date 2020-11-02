@@ -1,4 +1,9 @@
 document.addEventListener("DOMContentLoaded", function(event) {
+
+    window.onscroll = () => {
+        this.scrollY > 20 ? nav.classList.add("sticky") : nav.classList.remove("sticky");
+    }
+
     const body = document.querySelector("body");
     const main = document.querySelector("main");
 
@@ -25,10 +30,6 @@ document.addEventListener("DOMContentLoaded", function(event) {
         menuBtn.classList.remove("hide");
         cancelBtn.classList.remove("show");
         navList.classList.remove("scroll");
-    }
-
-    window.onscroll = () => {
-        this.scrollY > 20 ? nav.classList.add("sticky") : nav.classList.remove("sticky");
     }
 
 
@@ -70,9 +71,14 @@ document.addEventListener("DOMContentLoaded", function(event) {
         }, 1000)
     }
 
-
     /* uncheck checkbox when reload */
     window.onload = function uncheck() {
         checkbox.checked = false;
+
+        /* delete empty text of label */
+        var label = document.querySelector("label");
+        var emptyText = label.childNodes[3];
+        emptyText.textContent = "";
     }
 })
+
