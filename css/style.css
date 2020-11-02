@@ -105,7 +105,7 @@ p {
 }
 
 .section-title { 
-    font-size: 1.2rem; 
+    font-size: 1.7rem; 
     font-weight: 400;
 }
 
@@ -169,18 +169,16 @@ section {
     margin: 0 auto; 
     height: auto;
     padding-top: 6em;
+    padding-bottom: 2em;;
 }
 
 .intro {
     padding-top: 0;
+    padding-bottom: 0;
 }
 
-.about, 
-.passion,
-.experience,
-.work,
 .contact {
-    padding-bottom: 10em;
+    padding-bottom: 8em;
 }
 
 .section-title {
@@ -703,12 +701,14 @@ label:active:after {
     display: block;
     margin-top: 0;
     cursor: pointer;
+    margin-right: 0;
 }
 
 .button-work-less {
     display: none;
     margin-top: 2em;
     cursor: pointer;
+    margin-right: 0;
 }
 
 /* medium devices */
@@ -734,14 +734,17 @@ label:active:after {
     text-align: center;
 }
 
+.button-contact {
+    margin-right: 0;
+}
+
 
 /***************
     footer
 ***************/
 .container-footer {
     text-align: center;
-    padding-top: 3em;
-    padding-bottom: .5em;
+    padding: 3em 1em .5em 1em;
 }
 
 .footer-p {
