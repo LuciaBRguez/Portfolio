@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function(event) {
 
         function showDelay(i) {
             setTimeout(function() {
-                moreWorks[i].style.display = "block";
+                moreWorks[i].style.display = "flex";
                 moreWorks[i].style.visibility = "visible";
             }, 200 * i)
         }

@@ -558,6 +558,7 @@ label:active:after {
 .passion-item-p {
     order: 3;
     margin-top: 1em;
+    text-align: center;
 }
 
 /* medium devices and big devices */
@@ -576,12 +577,9 @@ label:active:after {
 /***************
     experience
 ***************/
-.experience-body-p {
-    margin-top: 0;
-}
 
 .experience-technologies-title {
-    padding-top: 2em;
+    margin-top: 0;
     text-align: center;
 }
 
@@ -656,10 +654,12 @@ label:active:after {
 .work-project {
     display: flex; 
     flex-direction: column;
+    justify-content: space-between;
     background: var(--secondaryColor);
     border-radius: .2em;
     padding: 2em;
     transition: all 0.3s ease;
+    min-height: 21em;
 }
 
 .work-project:hover {
@@ -670,6 +670,8 @@ label:active:after {
 
 .work-project-title {
     font-size: 1.2rem;
+    padding-bottom: 0;
+    margin-top: 1.5em;
 }
 
 .work-project-icon {
@@ -682,10 +684,10 @@ label:active:after {
     list-style: none;
     padding-right: 1em;
     padding: 0;
+    margin-bottom: 0;
 }
 
 .work-project-technologies-list-item {
-    color: var(--titleText);
     padding-right: 1em;
 }
 
