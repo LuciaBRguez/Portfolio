@@ -12,6 +12,7 @@
     small height => max-width: 510px
 */
 
+
 html {
     --titleText: black;
     --mainText: rgb(32, 32, 32);
@@ -105,7 +106,7 @@ p {
 }
 
 .section-title { 
-    font-size: 1.7rem; 
+    font-size: 1.5rem; 
     font-weight: 400;
 }
 
@@ -201,7 +202,7 @@ section {
 }
 
 .section-title {
-    border-bottom: .01em solid var(--titleText);
+    border-bottom: .1rem solid var(--titleText);
 }
 
 /* big devices */
@@ -209,6 +210,7 @@ section {
     .about-body,
     .experience-body {
         padding-left: 5em;
+        padding-bottom: 2em;
     }
 
     .passion-body {
@@ -244,7 +246,7 @@ section {
     background: transparent;
     z-index: 2;
     width: 100%;
-    color: white;
+    color: var(--titleText);
     padding: 2em 2em;
     display: flex;
     align-items: center;
@@ -271,7 +273,7 @@ to avoid overlap of nav and intro-title */
     padding: 0;
     margin: 0;
     padding: 0;
-    border: .01em solid var(--titleText);
+    border: .1rem solid var(--titleText);
     padding: .1em .4em;
     border-radius: .1em;
     border-style: solid;
@@ -378,7 +380,7 @@ to avoid overlap of nav and intro-title */
     display: inline-block;
     background: transparent;
     color: var(--accentText);
-    border: .01em solid var(--accentText);
+    border: .1rem solid var(--accentText);
     border-radius: .2em;
     text-align: center;
     text-decoration: none;
@@ -471,6 +473,7 @@ label:active:after {
 
 .about-body-text {
     order: 2;
+    text-align: center;
 }
 
 .about-body-text p:first-child {
@@ -495,6 +498,7 @@ label:active:after {
     .about-body-text {
         order: 1;
         width: 65%;
+        text-align: left;
     }
 
     .about-body-img {
@@ -521,11 +525,18 @@ label:active:after {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding-bottom: 2em;
+}
+
+.passion-item:last-child {
+    padding-bottom: 0;
 }
 
 .passion-item-title {
-    order:  1;
+    order: 1;
     margin-block-start: 0;
+    padding-bottom: 0;
+    margin-bottom: 0;
 }
 
 .passion-item-icon {
@@ -534,12 +545,12 @@ label:active:after {
     border-radius: 50%;
     color: var(--mainText);
     text-align: center;
-    width: 11em;
-    height: 11em;
-    display: flex;
+    width: 9em;
+    height: 9em;
+    display: none;
     align-items: center;
     justify-content: space-evenly;
-    margin-bottom: 1em;
+    margin-bottom: .5em;
     background: var(--secondaryColor);
 }
 
@@ -571,6 +582,24 @@ label:active:after {
 
     .passion-item {
         width: 30%;
+        padding-bottom: 0;
+    }
+
+    .passion-item-icon {
+        display: flex;
+    }
+
+    .passion-item-title {
+        padding-bottom: 1em;
+        margin-bottom: 1em;
+    }
+}
+
+/* big devices */
+@media (min-width: 980px) {
+    .passion-item-icon {
+        width: 11em;
+        height: 11em;
     }
 }
 
@@ -593,11 +622,11 @@ label:active:after {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     grid-template-rows: auto;
-    gap: 2em;
+    gap: 1.8em;
 }
 
 .experience-technology {
-    max-width: 4em;
+    max-width: 3.3em;
 }
 
 /* medium devices */
@@ -609,6 +638,10 @@ label:active:after {
     
     .experience-technology {
         max-width: 4em;
+    }
+
+    .experience-technologies-images-grid {
+        gap: 2em;
     }
 }
 
@@ -630,6 +663,10 @@ label:active:after {
     .experience-technology {
         max-width: 4em;
     }
+
+    .experience-technologies-images-grid {
+        gap: 2em;
+    }
 }
 
 /***************
@@ -643,7 +680,6 @@ label:active:after {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: auto;
-    gap: 2em;
 }
 
 .work-project-link {
@@ -659,7 +695,8 @@ label:active:after {
     border-radius: .2em;
     padding: 2em;
     transition: all 0.3s ease;
-    min-height: 21em;
+    min-height: 22em;
+    margin-bottom: 1em;
 }
 
 .work-project:hover {
@@ -705,7 +742,7 @@ label:active:after {
 
 .button-work-show {
     display: block;
-    margin-top: 0;
+    margin-top: 1em;
     cursor: pointer;
     margin-right: 0;
 }
@@ -721,7 +758,7 @@ label:active:after {
 @media (min-width: 615px) and (max-width: 979px) {
     .work-projects {
         grid-template-columns: repeat(2, 1fr);
-        grid-template-rows: auto;
+        gap: 0 1em;
     }
 }
 
@@ -729,7 +766,7 @@ label:active:after {
 @media (min-width: 980px) {
     .work-projects {
         grid-template-columns: repeat(3, 1fr);
-        grid-template-rows: auto;
+        gap: 0 1em;
     }
 }
 
