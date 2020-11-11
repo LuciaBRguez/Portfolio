@@ -12,24 +12,36 @@ document.addEventListener("DOMContentLoaded", function(event) {
     lessButton.onclick = showLessWork;
 
     function showMoreWork() {
+        showButton.style.display = "none";
+        lessButton.style.display = "none";
+
         for (var i = 0, length = moreWorks.length; i < length; i ++) {
             showDelay(i);
+        }
+
+        if (i == moreWorks.length) {
+            setTimeout(function() {
+                lessButton.style.display = "block";
+            }, 200 * (i+1))
         }
 
         function showDelay(i) {
             setTimeout(function() {
                 moreWorks[i].style.display = "flex";
                 moreWorks[i].style.visibility = "visible";
-            }, 200 * i)
+                moreWorks[i].style.transition = "opacity 0.2s ease"
+            }, 150 * (i+1))
+            setTimeout(function() {
+                moreWorks[i].style.opacity = "1";
+            }, 200 * (i+1))
         }
-
-        showButton.style.display = "none";
-        lessButton.style.display = "block";
     }
 
     function showLessWork() {
         for (var i = 0, length = moreWorks.length; i < length; i ++) {
             moreWorks[i].style.display = "none";
+            moreWorks[i].style.visibility = "hidden";
+            moreWorks[i].style.opacity = "0";
         }
 
         showButton.style.display = "block";
