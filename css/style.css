@@ -75,6 +75,10 @@ h3 {
     padding-bottom: 1em;
 }
 
+h4 {
+    padding-bottom: .5em;
+}
+
 p { 
     color: var(--mainText); 
     /*text-align: justify;*/
@@ -97,6 +101,11 @@ p {
     font-family: 'Roboto Mono', monospace;
     font-weight: 500;
     font-size: 1rem;
+}
+
+.subtitle {
+    font-size: .7rem;
+    padding-top: .5em;
 }
 
 .intro-title { 
@@ -675,6 +684,99 @@ label:active:after {
 .work-body-title {
     text-align: center;
 }
+
+/* WEBSITES */
+.website-projects {
+    margin-bottom: 4em;
+}
+
+.website-project {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.website-image {
+    width: 100%;
+    border-radius: .2em;
+    order: 2;
+    transition: all 0.3s ease;
+}
+
+.website-image:hover {
+    transform: translate(0, -.5em);
+    box-shadow: 0 .5em .5em 0 var(--shadowColor);
+    transition: all 0.3s ease;
+}
+
+.website-description {
+    order: 1;
+    width: 100%;
+    text-align: center;
+}
+
+.website-technologies-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    justify-content: center;
+    padding-right: 1em;
+    padding: 0;
+    margin-bottom: 2em;
+}
+
+.website-technologies-list-item {
+    padding: 0 .5em;
+}
+
+.website-description-title, .website-description-subtitle {
+    margin: 0;
+}
+
+.website-description-title {
+    font-size: 1.2rem;
+    padding-bottom: 0;
+}
+
+
+/* medium devices */
+@media (min-width: 615px) and (max-width: 979px) {
+    .website-image {
+        width: 90%;
+    }
+}
+
+/* big devices */
+@media (min-width: 980px) {
+    .website-project {
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+    }
+    
+    .website-image {
+        width: 70%;
+        order: 1;
+    }
+
+    .website-description {
+        order: 2;
+        padding-left: 2em;
+        text-align: center;
+    }
+
+    .website-description-text {
+        padding: 1.5em 0;
+    }
+
+    .website-technologies-list {
+        margin-bottom: 0;
+    }
+
+}
+
+/* GITHUB */
 
 .work-projects {
     display: grid;
